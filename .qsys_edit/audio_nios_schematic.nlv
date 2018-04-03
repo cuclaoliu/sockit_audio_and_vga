@@ -1,0 +1,65 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst audio_nios.i2c_sda -pg 1 -lvl 5 -y 220
+preplace inst audio_nios.ddr3.pll_bridge -pg 1
+preplace inst audio_nios.ddr3.pll0 -pg 1
+preplace inst audio_nios.ddr3.afi_reset_export -pg 1
+preplace inst audio_nios.cpu -pg 1 -lvl 3 -y 440
+preplace inst audio_nios -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst audio_nios.pio_key -pg 1 -lvl 5 -y 790
+preplace inst audio_nios.onchip_memory -pg 1 -lvl 5 -y 420
+preplace inst audio_nios.ddr3 -pg 1 -lvl 4 -y 100
+preplace inst audio_nios.ddr3.oct0 -pg 1
+preplace inst audio_nios.ddr3.soft_reset -pg 1
+preplace inst audio_nios.cpu_peripheral_bridge -pg 1 -lvl 4 -y 410
+preplace inst audio_nios.cpu.clock_bridge -pg 1
+preplace inst audio_nios.altpll_audio -pg 1 -lvl 5 -y 710
+preplace inst audio_nios.ddr3.afi_half_clk -pg 1
+preplace inst audio_nios.pio_sw -pg 1 -lvl 5 -y 910
+preplace inst audio_nios.ddr3.c0 -pg 1
+preplace inst audio_nios.ddr3.p0 -pg 1
+preplace inst audio_nios.ddr3.afi_clk -pg 1
+preplace inst audio_nios.ddr3.pll_ref_clk -pg 1
+preplace inst audio_nios.i2c_scl -pg 1 -lvl 5 -y 30
+preplace inst audio_nios.ddr3.c0.a0 -pg 1
+preplace inst audio_nios.altpll -pg 1 -lvl 2 -y 450
+preplace inst audio_nios.sysid_qsys -pg 1 -lvl 6 -y 600
+preplace inst audio_nios.ddr3.as0 -pg 1
+preplace inst audio_nios.ddr3.afi_reset -pg 1
+preplace inst audio_nios.ddr3.c0.afi_reset -pg 1
+preplace inst audio_nios.ddr3.dll0 -pg 1
+preplace inst audio_nios.timer -pg 1 -lvl 6 -y 500
+preplace inst audio_nios.cpu.cpu -pg 1
+preplace inst audio_nios.audio -pg 1 -lvl 5 -y 320
+preplace inst audio_nios.jtag_uart -pg 1 -lvl 5 -y 550
+preplace inst audio_nios.ddr3.c0.afi_half_clk -pg 1
+preplace inst audio_nios.ddr3.global_reset -pg 1
+preplace inst audio_nios.pio_led -pg 1 -lvl 5 -y 1030
+preplace inst audio_nios.ddr3.c0.afi_clk -pg 1
+preplace inst audio_nios.ddr3.c0.ng0 -pg 1
+preplace inst audio_nios.ddr3.s0 -pg 1
+preplace inst audio_nios.ddr3.m0 -pg 1
+preplace inst audio_nios.cpu.reset_bridge -pg 1
+preplace inst audio_nios.clk_50 -pg 1 -lvl 1 -y 450
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)ddr3.status,(SLAVE)audio_nios.ddr3_status) 1 0 4 NJ 250 NJ 250 NJ 250 NJ
+preplace netloc FAN_OUT<net_container>audio_nios</net_container>(MASTER)cpu.irq,(SLAVE)pio_key.irq,(SLAVE)jtag_uart.irq,(SLAVE)pio_sw.irq,(SLAVE)timer.irq) 1 3 3 NJ 540 1400 210 NJ
+preplace netloc FAN_OUT<net_container>audio_nios</net_container>(SLAVE)altpll.refclk,(SLAVE)altpll_audio.refclk,(MASTER)clk_50.clk) 1 1 4 340 580 NJ 580 NJ 580 1380
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)clk_50.clk_in_reset,(SLAVE)audio_nios.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.ddr3_pll_sharing,(SLAVE)ddr3.pll_sharing) 1 0 4 NJ 140 NJ 140 NJ 140 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)pio_sw.external_connection,(SLAVE)audio_nios.pio_sw) 1 0 5 NJ 940 NJ 940 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.pio_key,(SLAVE)pio_key.external_connection) 1 0 5 NJ 820 NJ 820 NJ 820 NJ 820 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.oct,(SLAVE)ddr3.oct) 1 0 4 NJ 100 NJ 100 NJ 100 NJ
+preplace netloc INTERCONNECT<net_container>audio_nios</net_container>(SLAVE)i2c_sda.reset,(SLAVE)cpu_peripheral_bridge.m0_reset,(SLAVE)cpu.reset,(MASTER)ddr3.afi_reset_export,(SLAVE)pio_led.reset,(SLAVE)cpu_peripheral_bridge.s0_reset,(SLAVE)i2c_scl.reset,(MASTER)cpu.debug_reset_request,(SLAVE)timer.reset,(SLAVE)onchip_memory.reset1,(MASTER)ddr3.afi_reset,(SLAVE)pio_sw.reset,(SLAVE)ddr3.soft_reset,(SLAVE)altpll_audio.reset,(SLAVE)jtag_uart.reset,(SLAVE)audio.reset,(SLAVE)sysid_qsys.reset,(MASTER)clk_50.clk_reset,(SLAVE)ddr3.global_reset,(SLAVE)pio_key.reset,(SLAVE)altpll.reset) 1 1 5 320 600 500 340 1000 340 1360 780 1670
+preplace netloc FAN_OUT<net_container>audio_nios</net_container>(SLAVE)jtag_uart.clk,(SLAVE)cpu_peripheral_bridge.s0_clk,(MASTER)altpll.outclk0,(SLAVE)sysid_qsys.clk,(SLAVE)cpu.clk,(SLAVE)timer.clk,(SLAVE)audio.clock,(SLAVE)onchip_memory.clk1) 1 2 4 540 400 1040 380 1440 510 1690
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.memory,(SLAVE)ddr3.memory) 1 0 4 NJ 80 NJ 80 NJ 80 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)i2c_sda.external_connection,(SLAVE)audio_nios.i2c_sda) 1 0 5 NJ 300 NJ 300 NJ 300 NJ 320 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.i2c_scl,(SLAVE)i2c_scl.external_connection) 1 0 5 NJ 60 NJ 60 NJ 60 NJ 60 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.pio_led,(SLAVE)pio_led.external_connection) 1 0 5 NJ 1060 NJ 1060 NJ 1060 NJ 1060 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.audio_conduit,(SLAVE)audio.conduit) 1 0 5 NJ 320 NJ 320 NJ 320 NJ 400 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)clk_50.clk_in,(SLAVE)audio_nios.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>audio_nios</net_container>(SLAVE)audio_nios.ddr3_pll_ref_clk,(SLAVE)ddr3.pll_ref_clk) 1 0 4 NJ 120 NJ 120 NJ 120 NJ
+preplace netloc INTERCONNECT<net_container>audio_nios</net_container>(SLAVE)cpu_peripheral_bridge.s0,(SLAVE)cpu.debug_mem_slave,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)ddr3.avl,(SLAVE)onchip_memory.s1,(SLAVE)timer.s1,(MASTER)cpu.instruction_master,(SLAVE)sysid_qsys.control_slave,(SLAVE)audio.avalon_slave,(MASTER)cpu.data_master) 1 2 4 560 360 960 360 1420 540 1650
+preplace netloc FAN_OUT<net_container>audio_nios</net_container>(SLAVE)i2c_sda.clk,(SLAVE)pio_key.clk,(MASTER)altpll.outclk1,(SLAVE)pio_led.clk,(SLAVE)i2c_scl.clk,(SLAVE)pio_sw.clk,(SLAVE)cpu_peripheral_bridge.m0_clk) 1 2 3 NJ 380 1020 300 1320
+preplace netloc FAN_OUT<net_container>audio_nios</net_container>(SLAVE)i2c_sda.s1,(SLAVE)pio_led.s1,(SLAVE)i2c_scl.s1,(SLAVE)pio_key.s1,(MASTER)cpu_peripheral_bridge.m0,(SLAVE)pio_sw.s1) 1 4 1 1340
+levelinfo -pg 1 0 110 1890
+levelinfo -hier audio_nios 120 150 370 680 1140 1500 1760 1880

@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+newBspWizardPage.defaultLocation=/home/stephen/altera/soc_hps/sockit_audio/software/sockit_audio_bsp
+newBspWizardPage.sopcinfoFile=/home/stephen/altera/soc_hps/sockit_audio/nios_core.sopcinfo
+newSoftwareExampleWizardPage.defaultLocation=/home/stephen/altera/soc_hps/sockit_audio/software/sockit_audio
+newSoftwareExampleWizardPage.sopcinfoFile=/home/stephen/altera/soc_hps/sockit_audio/audio_nios.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=/home/stephen/altera/soc_hps/sockit_audio/software/sockit_audio_bsp
